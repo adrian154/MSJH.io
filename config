@@ -4,8 +4,6 @@ server {
         listen [::]:443 ssl;
         server_name msjh.io;
 
-        include bithole-ssl.conf;
-
         # msjh.io shortlinks
         location /bio       { return 301 https://discord.gg/dqyzBUA6M9; }
         location /map       { return 301 /files/campus-map.jpg; }
@@ -15,9 +13,9 @@ server {
         location /school    { return 301 https://mission-fusd-ca.schoolloop.com/; }
         location /ic        { return 301 https://fremontunifiedca.infinitecampus.org/campus/portal/students/fremont.jsp; }
         location /discord   { return 301 https://discord.gg/eHfmfJXVQj; }
-        location /bell      { return 301 /files/bell-schedule.pdf; }
+        location /bell      { return 301 https://drive.google.com/file/d/1IyYLbGCpbgK-liZt1XP5XkAnOn83UAWZ/view; }
         location /ai        { return 301 https://discord.gg/BgKd44yUv2; }
-        location /dates     { return 301 /files/important-dates.pdf; }
+        location /dates     { return 301 https://docs.google.com/spreadsheets/d/1VG5txZn3CQv3phbEdhugkllmP2iqjc-_pltQrRsSloA/edit#gid=0; }
 	location /esports   { return 301 https://discord.gg/w8BCfPBxWC; }
 	location /jp        { return 301 https://discord.gg/bZjZW6QpvB; }
         location /jp/signup { return 301 https://forms.gle/7Yhi25VX4NwoYmpq7; } 
