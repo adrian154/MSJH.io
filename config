@@ -4,6 +4,8 @@ server {
         listen [::]:443 ssl;
         server_name msjh.io;
 
+        include bithole-ssl.conf;
+
         # msjh.io shortlinks
         location /bio       { return 301 https://discord.gg/dqyzBUA6M9; }
         location /map       { return 301 /files/campus-map.jpg; }
