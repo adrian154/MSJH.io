@@ -7,7 +7,6 @@ server {
         include bithole-ssl.conf;
 
         # msjh.io shortlinks
-        location /cs        { return 301 https://msjcs.github.io/; }
 	location /cs/signup { return 301 https://docs.google.com/forms/u/1/d/1gJg4VEs5O2mVQ6l71gs2ITiDQUxXtmhJz157p9YM2sI/edit?usp=sharing; }
         location /asb       { return 301 https://www.msjasb.org/; }
         location /school    { return 301 https://mission-fusd-ca.schoolloop.com/; }
