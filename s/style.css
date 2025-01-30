@@ -1,0 +1,75 @@
+body {
+      font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f5f5f5;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .countdown-container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .timer-pair {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 2px;
+      border-bottom: 15px;
+      border-top: 15px;
+    }
+
+    .timer {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1.2em;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 20px;
+    }
+
+    .timer-label {
+      margin-top: 10px;
+      text-align: left;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    @media screen and (max-width: 600px) {
+
+      .timer-pair {
+        text-align: center;
+        max-width: none;
+      }
+
+      .timer-label {
+        text-align: center;
+      }
+    }
