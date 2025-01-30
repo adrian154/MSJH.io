@@ -108,7 +108,6 @@
       const targetTimes = [
         {label: "Period 1: ", startHour: 8, startMinute: 30, endHour: 9, endMinute: 23}, // Example: 10:30 am - 11:30 am
         {label: "Period 2: ", startHour: 9, startMinute: 29, endHour: 10, endMinute: 22}, // Example: 1:45 pm - 2:30 pm
-        {label: "Break: ", startHour: 10, startMinute: 22, endHour: 10, endMinute: 27},
         {label: "Read: ", startHour: 10, startMinute: 33, endHour: 10, endMinute: 54},
         {label: "Period 3: ", startHour: 10, startMinute: 54, endHour: 11, endMinute: 47},   // Example: 3:00 pm - 4:00 pm
         {label: "Period 4: ", startHour: 11, startMinute: 53, endHour: 12, endMinute: 46},
@@ -138,7 +137,7 @@
             `Ends in: ${hours}h ${minutes}m ${seconds}s` :
             `Starts in: ${hours}h ${minutes}m ${seconds}s`;
         } else {
-          countdownElement.innerHTML = "Time's up!";
+          countdownElement.innerHTML = "";
         }
       }
 
