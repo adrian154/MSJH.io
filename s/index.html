@@ -110,8 +110,7 @@
         {label: "Period 2: ", startHour: 9, startMinute: 29, endHour: 10, endMinute: 22}, // Example: 1:45 pm - 2:30 pm
         {label: "Read: ", startHour: 10, startMinute: 33, endHour: 10, endMinute: 54},
         {label: "Period 3: ", startHour: 10, startMinute: 54, endHour: 11, endMinute: 47},   // Example: 3:00 pm - 4:00 pm
-        {label: "Period 4: ", startHour: 11, startMinute: 53, endHour: 12, endMinute: 46},
-        {label: "Lunch: ", startHour: 12, startMinute: 46, endHour: 13, endMinute: 21},  // Example: 6:20 pm - 7:00 pm
+        {label: "Period 4: ", startHour: 11, startMinute: 53, endHour: 12, endMinute: 46},  // Example: 6:20 pm - 7:00 pm
         {label: "Period 5: ", startHour: 13, startMinute: 27, endHour: 14, endMinute: 20},  // Example: 8:30 pm - 9:00 pm
         {label: "Period 6: ", startHour: 14, startMinute: 26, endHour: 15, endMinute: 19}   // Example: 11:00 pm - 11:59 pm
       ];
@@ -137,7 +136,7 @@
             `Ends in: ${hours}h ${minutes}m ${seconds}s` :
             `Starts in: ${hours}h ${minutes}m ${seconds}s`;
         } else {
-          countdownElement.innerHTML = "";
+          countdownElement.innerHTML = "​";
         }
       }
 
