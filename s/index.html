@@ -133,8 +133,8 @@
           const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
           countdownElement.innerHTML = isEnd ?
-            `Ends in: ${hours}h ${minutes}m ${seconds}s` :
-            `Starts in: ${hours}h ${minutes}m ${seconds}s`;
+            `${hours}h ${minutes}m ${seconds}s` :
+            `${hours}h ${minutes}m ${seconds}s`;
         } else {
           countdownElement.innerHTML = "​";
         }
