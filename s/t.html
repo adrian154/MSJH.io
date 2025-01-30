@@ -3,83 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #f5f5f5;
-    }
-
-    .topnav {
-      overflow: hidden;
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .topnav a {
-      float: left;
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    .countdown-container {
-      padding: 20px;
-      text-align: center;
-    }
-
-    .timer-pair {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 30px;
-      text-align: center;
-      background-color: white;
-      padding: 20px;
-      max-width: 300px;
-      margin: 0 auto;
-      border-radius: 2px;
-      border-bottom: 15px;
-      border-top: 15px;
-    }
-
-    .timer {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 1.2em;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 20px;
-    }
-
-    .timer-label {
-      margin-top: 10px;
-      text-align: left;
-      font-size: 1.2em;
-      color: #333;
-    }
-
-    @media screen and (max-width: 600px) {
-
-      .timer-pair {
-        text-align: center;
-        max-width: none;
-      }
-
-      .timer-label {
-        text-align: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -106,82 +30,17 @@
     <script>
       // Set the target times (in 24-hour format)
       const targetTimes = [
-        {label: "Period 1: ",startHour: 8,startMinute: 30,endHour: 9,endMinute: 18},
+		{label: "Period 1: ",startHour: 8,startMinute: 30,endHour: 9,endMinute: 18},
         {label: "Period 2: ",startHour: 9,startMinute: 24,endHour: 10,endMinute: 12},
-        {label: "Break: ",startHour: 10,startMinute: 12,endHour: 10,endMinute: 17},
         {label: "Advisory: ",startHour: 10,startMinute: 23,endHour: 11,endMinute: 05},
         {label: "Period 3: ",startHour: 11,startMinute: 11,endHour: 11,endMinute: 59},  
         {label: "Period 4: ",startHour: 12,startMinute: 05,endHour: 12,endMinute: 53},
-        {label: "Lunch: ",startHour: 12,startMinute: 53,endHour: 13,endMinute: 27}, 
         {label: "Period 5: ",startHour: 13,startMinute: 33,endHour: 14,endMinute: 21}, 
-        {label: "Period 6: ",startHour: 14,startMinute: 27,endHour: 15,endMinute: 15}
-      ];
+        {label: "Period 6: ",startHour: 14,startMinute: 27,endHour: 15,endMinute: 15}      
+	</script>
 
-      function createCountdownElement() {
-        return document.createElement('div');
-      }
+	<script src="script.js"></script>
 
-      function updateCountdown(countdownElement, targetTime, isEnd) {
-        const currentTime = new Date();
-        const targetDateTime = new Date();
-        targetDateTime.setHours(isEnd ? targetTime.endHour : targetTime.startHour,
-          isEnd ? targetTime.endMinute : targetTime.startMinute, 0, 0);
-
-        const timeDifference = targetDateTime - currentTime;
-
-        if (timeDifference > 0) {
-          const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-          countdownElement.innerHTML = isEnd ?
-            `Ends in: ${hours}h ${minutes}m ${seconds}s` :
-            `Starts in: ${hours}h ${minutes}m ${seconds}s`;
-        } else {
-          countdownElement.innerHTML = "Time's up!";
-        }
-      }
-
-      function updateAllCountdowns() {
-        for (let i = 0; i < targetTimes.length; i++) {
-          const timerPair = countdownElements[i];
-          const startCountdownElement = timerPair.start;
-          const endCountdownElement = timerPair.end;
-          const targetTime = targetTimes[i];
-          updateCountdown(startCountdownElement, targetTime, false);
-          updateCountdown(endCountdownElement, targetTime, true);
-        }
-      }
-
-      // Create countdown elements
-      const countdownElements = [];
-      for (let i = 0; i < targetTimes.length; i++) {
-        const timerPair = document.createElement('div');
-        timerPair.className = 'timer-pair';
-
-        const labelElement = document.createElement('div');
-        labelElement.className = 'timer-label';
-        labelElement.innerHTML = targetTimes[i].label;
-        timerPair.appendChild(labelElement);
-
-        const startCountdownElement = createCountdownElement();
-        startCountdownElement.className = 'timer';
-        timerPair.appendChild(startCountdownElement);
-
-        const endCountdownElement = createCountdownElement();
-        endCountdownElement.className = 'timer';
-        timerPair.appendChild(endCountdownElement);
-
-        document.getElementById('timers').appendChild(timerPair);
-        countdownElements.push({label: labelElement, start: startCountdownElement, end: endCountdownElement});
-      }
-
-      // Update all countdowns every second
-      setInterval(updateAllCountdowns, 1000);
-
-      // Initial call to set the initial countdowns
-      updateAllCountdowns();
-    </script>
   </div>
 
 </body>
