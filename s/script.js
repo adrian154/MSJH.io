@@ -2,7 +2,7 @@ function createCountdownElement() {
   return document.createElement('div');
 }
 
-function updateCountdown(countdownElement, targetTime, isEnd) {
+function updateCountdown(countdownElement, targetTime, isEnd, timerPair) {
   const currentTime = new Date();
   const targetDateTime = new Date();
   targetDateTime.setHours(isEnd ? targetTime.endHour : targetTime.startHour,
@@ -22,18 +22,24 @@ function updateCountdown(countdownElement, targetTime, isEnd) {
 
     countdownElement.innerHTML = timeString.trim();
   } else {
-    countdownElement.innerHTML = "​";
+    // Remove the entire timer once the event has ended
+    if (isEnd) {
+      timerPair.remove();
+    } else {
+      countdownElement.innerHTML = "​";
+    }
   }
 }
 
 function updateAllCountdowns() {
-  for (let i = 0; i < targetTimes.length; i++) {
+  for (let i = countdownElements.length - 1; i >= 0; i--) { // Loop in reverse to avoid issues while removing elements
     const timerPair = countdownElements[i];
     const startCountdownElement = timerPair.start;
     const endCountdownElement = timerPair.end;
     const targetTime = targetTimes[i];
-    updateCountdown(startCountdownElement, targetTime, false);
-    updateCountdown(endCountdownElement, targetTime, true);
+
+    updateCountdown(startCountdownElement, targetTime, false, timerPair.container);
+    updateCountdown(endCountdownElement, targetTime, true, timerPair.container);
   }
 }
 
@@ -57,11 +63,11 @@ for (let i = 0; i < targetTimes.length; i++) {
   timerPair.appendChild(endCountdownElement);
 
   document.getElementById('timers').appendChild(timerPair);
-  countdownElements.push({ label: labelElement, start: startCountdownElement, end: endCountdownElement });
+  countdownElements.push({ container: timerPair, label: labelElement, start: startCountdownElement, end: endCountdownElement });
 }
 
 // Update all countdowns every second
 setInterval(updateAllCountdowns, 1000);
 
-// Initial call to set the initial countdowns
+// Initial call to set the countdowns
 updateAllCountdowns();
